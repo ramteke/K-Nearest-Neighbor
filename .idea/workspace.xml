@@ -15,7 +15,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../kMeans-Clustering" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -25,6 +25,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1cXx79Y7uxyaAWCr9lbi247tkO0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -139,46 +140,46 @@
     </state>
     <state x="583" y="145" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1590690291934" />
     <state x="611" y="165" key="CommitChangelistDialog2/40.23.1880.1057@40.23.1880.1057" timestamp="1590694222375" />
-    <state width="1838" height="282" key="GridCell.Tab.0.bottom" timestamp="1590695422422">
+    <state width="1838" height="200" key="GridCell.Tab.0.bottom" timestamp="1590695680380">
       <screen x="40" y="23" width="1880" height="1057" />
     </state>
     <state width="1878" height="417" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1590691342875" />
-    <state width="1838" height="282" key="GridCell.Tab.0.bottom/40.23.1880.1057@40.23.1880.1057" timestamp="1590695422422" />
-    <state width="1838" height="282" key="GridCell.Tab.0.center" timestamp="1590695422421">
+    <state width="1838" height="200" key="GridCell.Tab.0.bottom/40.23.1880.1057@40.23.1880.1057" timestamp="1590695680380" />
+    <state width="1838" height="200" key="GridCell.Tab.0.center" timestamp="1590695680380">
       <screen x="40" y="23" width="1880" height="1057" />
     </state>
     <state width="1878" height="417" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1590691342874" />
-    <state width="1838" height="282" key="GridCell.Tab.0.center/40.23.1880.1057@40.23.1880.1057" timestamp="1590695422421" />
-    <state width="1838" height="282" key="GridCell.Tab.0.left" timestamp="1590695422420">
+    <state width="1838" height="200" key="GridCell.Tab.0.center/40.23.1880.1057@40.23.1880.1057" timestamp="1590695680380" />
+    <state width="1838" height="200" key="GridCell.Tab.0.left" timestamp="1590695680379">
       <screen x="40" y="23" width="1880" height="1057" />
     </state>
     <state width="1878" height="417" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1590691342873" />
-    <state width="1838" height="282" key="GridCell.Tab.0.left/40.23.1880.1057@40.23.1880.1057" timestamp="1590695422420" />
-    <state width="1838" height="282" key="GridCell.Tab.0.right" timestamp="1590695422421">
+    <state width="1838" height="200" key="GridCell.Tab.0.left/40.23.1880.1057@40.23.1880.1057" timestamp="1590695680379" />
+    <state width="1838" height="200" key="GridCell.Tab.0.right" timestamp="1590695680380">
       <screen x="40" y="23" width="1880" height="1057" />
     </state>
     <state width="1878" height="417" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1590691342875" />
-    <state width="1838" height="282" key="GridCell.Tab.0.right/40.23.1880.1057@40.23.1880.1057" timestamp="1590695422421" />
-    <state width="1838" height="529" key="GridCell.Tab.1.bottom" timestamp="1590695175217">
+    <state width="1838" height="200" key="GridCell.Tab.0.right/40.23.1880.1057@40.23.1880.1057" timestamp="1590695680380" />
+    <state width="1838" height="529" key="GridCell.Tab.1.bottom" timestamp="1590695680372">
       <screen x="40" y="23" width="1880" height="1057" />
     </state>
     <state width="1878" height="417" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1590691342877" />
-    <state width="1838" height="529" key="GridCell.Tab.1.bottom/40.23.1880.1057@40.23.1880.1057" timestamp="1590695175217" />
-    <state width="1838" height="529" key="GridCell.Tab.1.center" timestamp="1590695175217">
+    <state width="1838" height="529" key="GridCell.Tab.1.bottom/40.23.1880.1057@40.23.1880.1057" timestamp="1590695680372" />
+    <state width="1838" height="529" key="GridCell.Tab.1.center" timestamp="1590695680372">
       <screen x="40" y="23" width="1880" height="1057" />
     </state>
     <state width="1878" height="417" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1590691342876" />
-    <state width="1838" height="529" key="GridCell.Tab.1.center/40.23.1880.1057@40.23.1880.1057" timestamp="1590695175217" />
-    <state width="1838" height="529" key="GridCell.Tab.1.left" timestamp="1590695175216">
+    <state width="1838" height="529" key="GridCell.Tab.1.center/40.23.1880.1057@40.23.1880.1057" timestamp="1590695680372" />
+    <state width="1838" height="529" key="GridCell.Tab.1.left" timestamp="1590695680372">
       <screen x="40" y="23" width="1880" height="1057" />
     </state>
     <state width="1878" height="417" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1590691342875" />
-    <state width="1838" height="529" key="GridCell.Tab.1.left/40.23.1880.1057@40.23.1880.1057" timestamp="1590695175216" />
-    <state width="1838" height="529" key="GridCell.Tab.1.right" timestamp="1590695175217">
+    <state width="1838" height="529" key="GridCell.Tab.1.left/40.23.1880.1057@40.23.1880.1057" timestamp="1590695680372" />
+    <state width="1838" height="529" key="GridCell.Tab.1.right" timestamp="1590695680372">
       <screen x="40" y="23" width="1880" height="1057" />
     </state>
     <state width="1878" height="417" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1590691342876" />
-    <state width="1838" height="529" key="GridCell.Tab.1.right/40.23.1880.1057@40.23.1880.1057" timestamp="1590695175217" />
+    <state width="1838" height="529" key="GridCell.Tab.1.right/40.23.1880.1057@40.23.1880.1057" timestamp="1590695680372" />
     <state x="630" y="255" key="NewModule_or_Project.wizard" timestamp="1590688892301">
       <screen x="40" y="23" width="1880" height="1057" />
     </state>
