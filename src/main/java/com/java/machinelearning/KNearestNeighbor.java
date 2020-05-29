@@ -25,7 +25,7 @@ public class KNearestNeighbor {
             double[] array = new double[list.size()];
             int index = 0;
             for (Double val : list) {
-                array[index++] = ((val - min) * 1.0) / ((max - min) * 1.0);
+                array[index++] = (val - min) / (max - min);
             }
             result.add(array);
         }
@@ -33,99 +33,58 @@ public class KNearestNeighbor {
         return result;
     }
 
-    private Map<Integer,String> categorizedCars(Map<Integer, List<Object>> inputData, int classificationRow) {
-        Map<Integer,String> carModels = new HashMap<>();
+    private Map<Integer, String> categorizedCars(Map<Integer, List<Object>> inputData, int classificationRow) {
+        Map<Integer, String> carModels = new HashMap<>();
 
         List<Object> list = inputData.get(classificationRow);
         int index = 0;
-        for (Object obj : list) {
-            carModels.put(index++, obj.toString());
+        for (int i = 0; i < list.size() - 1; i++) {
+            carModels.put(index++, list.get(i).toString());
         }
 
         return carModels;
     }
 
     //https://en.wikipedia.org/wiki/Euclidean_distance
-    public double euclideanDistance(List<double[]> features, int sourceRowIndex) {
+    public double euclideanDistance(List<double[]> features, int sourceRowIndex, int toClassifyRow) {
         double diffs[] = new double[features.size()];
 
         for (int i = 0; i < features.size(); i++) {
-            for (int rowIndex = 0; rowIndex < features.get(i).length; rowIndex++) {
-                diffs[i] = features.get(i)[rowIndex] - features.get(i)[sourceRowIndex];
-            }
+            diffs[i] = features.get(i)[sourceRowIndex] - features.get(i)[toClassifyRow];
         }
 
         double SUM = 0.0;
-        for ( double diff : diffs) {
-            SUM = SUM + (diff*diff);
+        for (int i = 0; i < diffs.length - 1; i++) {
+            SUM = SUM + (diffs[i] * diffs[i]);
         }
 
-        return  Math.sqrt(SUM);
+        return Math.sqrt(SUM);
 
     }
 
-    public static void main(String args[]) throws Exception {
-        KNearestNeighbor client = new KNearestNeighbor();
 
-        //Step1: Read Features
-        List<String> lines = client.readInput();
-        Map<Integer, List<Object>> featureMap = client.getFeatures(lines);
+    private int[] sortRows(double[] distances) {
 
-        List<double[]> normalizedData = client.normalize(featureMap, new int[]{0, 1});
-        Map<Integer, String> index2Categories = client.categorizedCars(featureMap, 2);
-
-
-        double [] rowToDistance = new double[index2Categories.size()];
-        for ( int i = 0; i < index2Categories.size(); i++) {
-            double distance = client.euclideanDistance(normalizedData, i);
-            rowToDistance[i] =distance;
-        }
-
-        int [] sortedIndexes = client.sortRows(rowToDistance);
-        Map<String, Integer> categoryCount = new HashMap<>();
-        for ( int i = sortedIndexes.length -1 ; i >= 0; i--) {
-
-            if ( categoryCount.containsKey(sortedIndexes[i])) {
-                int count = categoryCount.get( sortedIndexes[i]);
-                count++;
-                categoryCount.put( index2Categories.get((sortedIndexes[i])), count);
-            } else {
-                categoryCount.put( index2Categories.get((sortedIndexes[i])), 1);
-            }
-        }
-
-        int maxCount = Integer.MIN_VALUE;
-        String maxCountCar = null;
-        for ( String str : categoryCount.keySet() ) {
-            if  ( categoryCount.get(str) > maxCount) {
-                maxCount = categoryCount.get(str);
-                maxCountCar = str;
-            }
-        }
-
-        System.out.println("Car Model: " + maxCountCar);
-
-    }
-
-    private int[] sortRows(double [] distances) {
-        int sortedIndexs [] = new int[distances.length];
         Map<Double, List<Integer>> distances2indexMap = new HashMap<>();
-        for (int i = 0; i < distances.length;i++) {
+        for (int i = 0; i < distances.length; i++) {
 
-            if (! distances2indexMap.containsKey(distances[i]) ) {
+            if (!distances2indexMap.containsKey(distances[i])) {
                 distances2indexMap.put(distances[i], new ArrayList<>());
             }
             List<Integer> indexes = distances2indexMap.get(distances[i]);
             indexes.add(i);
         }
 
-        List<Double> distanceList = new ArrayList<Double>(distances2indexMap.keySet());
-        Collections.sort(distanceList);
-        int index = 0;
-        for (Double val : distances) {
+        List<Double> sortedDistances = new ArrayList<Double>(distances2indexMap.keySet());
+        Collections.sort(sortedDistances);
+
+        int sortedIndexs[] = new int[distances.length];
+        int counter = 0;
+        for (Double val : sortedDistances) {
             List<Integer> indexs = distances2indexMap.get(val);
             for (int i : indexs) {
-                sortedIndexs[index++] = i;
+                sortedIndexs[counter] = i;
+                counter++;
             }
         }
         return sortedIndexs;
@@ -178,5 +137,53 @@ public class KNearestNeighbor {
                 return false;
         }
         return true;
+    }
+
+
+    public static void main(String args[]) throws Exception {
+        int K = 4;  // INPUT
+
+        KNearestNeighbor client = new KNearestNeighbor();
+
+        List<String> lines = client.readInput();
+        Map<Integer, List<Object>> featureMap = client.getFeatures(lines);
+
+        List<double[]> normalizedData = client.normalize(featureMap, new int[]{0, 1});
+        Map<Integer, String> index2Categories = client.categorizedCars(featureMap, 2);
+
+        int toClassifyRow = normalizedData.get(0).length - 1;    // INPUT
+
+        double[] rowToDistance = new double[index2Categories.size()];
+        for (int row = 0; row < index2Categories.size(); row++) {
+            double distance = client.euclideanDistance(normalizedData, row, toClassifyRow);
+            rowToDistance[row] = distance;
+        }
+
+        int[] sortedIndexes = client.sortRows(rowToDistance);
+        Map<String, Integer> categoryCount = new HashMap<>();
+
+        for (int i = 0; i < K; i++) {
+            int index = sortedIndexes[i];
+            String carType = index2Categories.get(index);
+            if (categoryCount.containsKey(carType)) {
+                int count = categoryCount.get(carType);
+                count++;
+                categoryCount.put(carType, count);
+            } else {
+                categoryCount.put(carType, 1);
+            }
+        }
+
+        int maxCount = Integer.MIN_VALUE;
+        String maxCountCarType = null;
+        for (String carType : categoryCount.keySet()) {
+            if (categoryCount.get(carType) > maxCount) {
+                maxCount = categoryCount.get(carType);
+                maxCountCarType = carType;
+            }
+        }
+
+        System.out.println("Car Model: " + maxCountCarType);
+
     }
 }

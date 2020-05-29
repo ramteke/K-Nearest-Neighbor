@@ -3,3 +3,9 @@
 28, 15, Wagon-R
 40, 25, Civic
 31, 22, Eco-Sport
+26, 14, Eco-Sport
+33, 20, Duster
+26, 15, Eco-Sport
+45, 30, Civic
+20, 8, Wagon-R
+29, 28, To-Calculate
